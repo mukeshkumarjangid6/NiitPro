@@ -63,5 +63,4 @@ public String getImg_url() {
 public void setImg_url(String img_url) {
 	Img_url = img_url;
 }
-
 }
