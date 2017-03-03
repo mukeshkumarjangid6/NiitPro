@@ -12,16 +12,18 @@
     <s:url value="/resources/css" var="css"/>
 <s:url value="/resources/js" var="js"/>
 <s:url value="/resources/fonts" var="fonts"/>
-<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+
+
+<script src="${js}/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="${css}/bootstrap.min.css">
+<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+<script src="${js}/bootstrap.min.js"></script>
     
     	<!-- Website Font style -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <!-- Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-		
-<%@include file="Navigation.jsp" %>
   <style>
   body, html{
      height: 100%;
@@ -87,7 +89,7 @@ input::-webkit-input-placeholder {
   
 </head>
 <body>
-
+<%@include file="Navigation.jsp" %>
 <div class="container">
 			<div class="row main">
 				<div class="panel-heading">
@@ -173,7 +175,5 @@ input::-webkit-input-placeholder {
  <footer>
 <div style="position:fixed;bottom:10px;left:10px;background:#4679BC;padding:4px;border-radius:2px;border:1px solid #4679AA"><a href="http://code2care.org" title="more ..." style="padding:6px;text-decoration:none;font-size:12px;color:#fff;letter-spacing: 1.5px;">Meilleour Global Services</a></div>
 </footer>
-    <script src="${js}/jquery-1.10.2.js"></script>
-    <script src="${js}/bootstrap.min.js"></script>
 </body>
 </html>

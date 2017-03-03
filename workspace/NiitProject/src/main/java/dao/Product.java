@@ -1,66 +1,66 @@
 package dao;
 
 public class Product {
-private int ID;
-private String Brand;
-private String Name;
-private String Description;
-private String Category; 
-private String Supplier;
-private String Img_url;
-private int Price, Quantity;
+private int id;
+private String brand;
+private String name;
+private String description;
+private String category; 
+private String supplier;
+private String img_url;
+private int price, quantity;
 public int getID() {
-	return ID;
+	return id;
 }
-public void setID(int iD) {
-	ID = iD;
+public void setID(int id) {
+	this.id = id;
 }
 public String getBrand() {
-	return Brand;
+	return brand;
 }
 public void setBrand(String brand) {
-	Brand = brand;
+	this.brand = brand;
 }
 public String getName() {
-	return Name;
+	return name;
 }
 public void setName(String name) {
-	Name = name;
+	this.name = name;
 }
 public String getDescription() {
-	return Description;
+	return description;
 }
 public void setDescription(String description) {
-	Description = description;
+	this.description = description;
 }
 public String getCategory() {
-	return Category;
+	return category;
 }
 public void setCategory(String category) {
-	Category = category;
+	this.category = category;
 }
 public String getSupplier() {
-	return Supplier;
+	return supplier;
 }
 public void setSupplier(String supplier) {
-	Supplier = supplier;
+	this.supplier = supplier;
 }
 public int getPrice() {
-	return Price;
+	return price;
 }
 public void setPrice(int price) {
-	Price = price;
+	this.price = price;
 }
 public int getQuantity() {
-	return Quantity;
+	return quantity;
 }
 public void setQuantity(int quantity) {
-	Quantity = quantity;
+	this.quantity = quantity;
 }
 public String getImg_url() {
-	return Img_url;
+	return img_url;
 }
-public void setImg_url(String img_url) {
-	Img_url = img_url;
+public void setImg_url(String img_url) 	{
+	this.img_url = img_url;
 }
 }

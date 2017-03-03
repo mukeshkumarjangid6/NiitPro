@@ -11,15 +11,12 @@
 <s:url value="/resources/js" var="js"/>
 <s:url value="/resources/fonts" var="fonts"/>
    
-
-
-<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+<script src="${js}/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="${css}/bootstrap.min.css">
-   <script src="${js}/jquery-1.10.2.js"></script>
+<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
 <script type="text/javascript" src="${js}/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="${js}/jquery.dataTables.js"></script>
-   <%@include file="Navigation.jsp" %>
   
   <style>
 
@@ -37,66 +34,77 @@ body {
   $(function(){
 		$('#mytable').DataTable({
 			ajax: {
-		        url: 'NiitProject/product1/all/data',
+		        url: '/NiitProject/product1/all/data',
 		        dataSrc: ''
 		    },
 		    columns: [
-		        { data: 'Name' }
-		       /* { data: 'Brand' },
-		        { data: 'Description' },
-		        { data: 'Category' },
-		        { data: 'Supplier' },
-		        { data: 'Img_url' },
-		        { data: 'Price' },
-		        { data: 'Quantity' }
+		    	{data: null,
+		        	mRender: function ( data, type, row ) {
+		                return '<img src="/NiitProject/resources/Image/'+ row.name +'.jpg" height="50" width="50">';
+		            }
+		        },
+		        { data: 'name' },
+		       { data: 'brand' },
+		        { data: 'description' },
+		        { data: 'category' },
+		        { data: 'supplier' },
+		        { data: 'price' },
+		        { data: 'quantity' },
+		       
 		        {data: null,
 		        	mRender: function ( data, type, row ) {
-		                return '<img src="/NiitProject/resources/Image/'+ row.id +'.jpg" height="50" width="50">';
-		            }
+		                //return '<a class="btn btn-primary" href="/NiitProject/product11/userName="'+row.name+'">View Item</a>';
+		        		return "<a class='btn btn-primary' href='/NiitProject/product11/"+row.id+"'>View Item</a>";
+		            }	
 		        },
 		        {data: null,
 		        	mRender: function ( data, type, row ) {
-		                return '<a class="btn btn-primary" href="'+data+'">View Item</a> &nbsp;<a class="btn btn-primary" href="'+data+'">Add To Cart</a> ';
+		                return '<a class="btn btn-primary" href="'+row.name+'">Add To Cart</a> ';
 		            }	
 		        }
-		        */
 		    ]
-		} );
+		});
 	});
   </script>
 </head>
 <body>
-
+<%@include file="Navigation.jsp" %>
+<div class="container">
 <table id="mytable" class="table table-bordered">
  	<thead>
  <!-- 	<th>image name</th> -->
  <!-- 	<th>active</th> -->
+ <th>Img_url</th>
  	<th>Name</th>
- <!-- <th>Brand</th>
+ <th>Brand</th>
  	<th>Description</th>
  	<th>Category</th>
  	<th>Supplier</th>
- 	<th>Img_url</th>
  	<th>Price</th>
- 	<th>Quantity</th> -->
+ 	<th>Quantity</th>
+ 	<th></th>
+ 	<th></th>
  	</thead>
 <tfoot>
  <!-- 	<tr>image name</tr> -->
  <!-- 	<tr>active</tr> -->
+ <th>Img_url</th>
 	<th>Name</th>
- 	<!-- <th>Brand</th>
+ 	<th>Brand</th>
  	<th>Description</th>
  	<th>Category</th>
  	<th>Supplier</th>
- 	<th>Img_url</th>
  	<th>Price</th>
- 	<th>Quantity</th> -->
+ 	<th>Quantity</th>
+ 	<th></th>
+ 	<th></th>
  	</tfoot>
   	</table>
 
 <footer>
 <div style="position:fixed;bottom:10px;left:10px;background:#4679BC;padding:4px;border-radius:2px;border:1px solid #4679AA"><a href="http://code2care.org" title="more ..." style="padding:6px;text-decoration:none;font-size:12px;color:#fff;letter-spacing: 1.5px;">Meilleour Global Services</a></div>
 </footer>
+</div>
    <!--  <script src="${js}/jquery-1.10.2.js"></script>
     <script src="${js}/bootstrap.min.js"></script> -->
 </body>

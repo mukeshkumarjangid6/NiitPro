@@ -17,7 +17,6 @@ public class ProductController {
 
 	@RequestMapping("/product1/all/data")
 	public @ResponseBody List<Product> getProducts() {
-		System.out.println("Controller Reached");
 		return product1.productList();
 	}
 }

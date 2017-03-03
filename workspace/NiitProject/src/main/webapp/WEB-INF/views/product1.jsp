@@ -10,9 +10,14 @@
     <s:url value="/resources/css" var="css"/>
 <s:url value="/resources/js" var="js"/>
 <s:url value="/resources/fonts" var="fonts"/>
-<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+
+
+<script src="${js}/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="${css}/bootstrap.min.css">
-   <%@include file="Navigation.jsp" %>
+<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+<script src="${js}/bootstrap.min.js"></script>
+  
+  <script type="text/javascript" src="${js}/jquery.dataTables.js"></script>
   
   <style>
 
@@ -27,12 +32,39 @@ body {
   </style>
 </head>
 <body>
+<%@include file="Navigation.jsp" %>
 
+<div class="container">
+<table id="mytableProduct" class="table table-bordered">
+ 	<tbody>
+ <!-- 	<th>image name</th> -->
+ <!-- 	<th>active</th> -->
+ <tr>
+ <td></td>
+ 	<td>Name</td>
+ <td>Brand</td>
+ 	<td>Description</td>
+ 	<td>Category</td>
+ 	<td>Supplier</td>
+ 	<td>Price</td>
+ 	<td>Quantity</td>
+ 	</tr>
+ 	<tr>
+ <td><img src='/NiitProject/resources/Image/${msg.name}.jpg' height="200" width="200"></td>
+ 	<td>${msg.name}</td>
+ <td>${msg.brand}</td>
+ 	<td>${msg.description}</td>
+ 	<td>${msg.category}</td>
+ 	<td>${msg.supplier}</td>
+ 	<td>${msg.price}</td>
+ 	<td>${msg.quantity}</td>
+ 	</tr>
+ 	</tbody>
+</table>
 
 <footer>
 <div style="position:fixed;bottom:10px;left:10px;background:#4679BC;padding:4px;border-radius:2px;border:1px solid #4679AA"><a href="http://code2care.org" title="more ..." style="padding:6px;text-decoration:none;font-size:12px;color:#fff;letter-spacing: 1.5px;">Meilleour Global Services</a></div>
 </footer>
-    <script src="${js}/jquery-1.10.2.js"></script>
-    <script src="${js}/bootstrap.min.js"></script>
+   </div> 
 </body>
 </html>

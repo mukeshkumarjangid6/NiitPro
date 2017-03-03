@@ -10,9 +10,14 @@
     <s:url value="/resources/css" var="css"/>
 <s:url value="/resources/js" var="js"/>
 <s:url value="/resources/fonts" var="fonts"/>
-<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+
+
+<script src="${js}/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="${css}/bootstrap.min.css">
-   <%@include file="Navigation.jsp" %>
+<link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
+<script src="${js}/bootstrap.min.js"></script>
+
+   
   
   <style>
 
@@ -43,7 +48,7 @@ body {
   </style>
 </head>
 <body>
-
+<%@include file="Navigation.jsp" %>
 <div class="container">
 <div class="panel-heading">
 	               <div class="panel-title text-center">
@@ -74,7 +79,5 @@ body {
 <footer>
 <div style="position:fixed;bottom:10px;left:10px;background:#4679BC;padding:4px;border-radius:2px;border:1px solid #4679AA"><a href="http://code2care.org" title="more ..." style="padding:6px;text-decoration:none;font-size:12px;color:#fff;letter-spacing: 1.5px;">Meilleour Global Services</a></div>
 </footer>
-    <script src="${js}/jquery-1.10.2.js"></script>
-    <script src="${js}/bootstrap.min.js"></script>
 </body>
 </html>

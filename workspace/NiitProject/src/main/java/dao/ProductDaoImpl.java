@@ -55,21 +55,12 @@ public class ProductDaoImpl implements ProductDao{
 	
 	public Product getProduct(int id)
 	{
+		ProductLi();
 		return products.get(id);
 	}
 	public List<Product> productList()
 	{
-		
 		ProductLi();
-		System.out.println("Product List Reached");
-		 for (Product a  : products) {
-	         System.out.print(a.getName()+" ");
-	         System.out.print(a.getBrand()+" ");
-	         System.out.print(a.getCategory()+" ");
-	         System.out.print(a.getDescription()+" ");
-	         System.out.print(a.getImg_url()+" ");
-	         System.out.print(a.getQuantity()+" ");
-	      }
 		return products;
 	}
 }
