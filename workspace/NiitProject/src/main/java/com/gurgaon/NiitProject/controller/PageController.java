@@ -5,13 +5,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import dao.Product;
-import dao.ProductDao;
+import com.gurgaon.NiitProject.dao.ProductDao;
 
 @Controller
 public class PageController {
 	
-	@Autowired
+	@Autowired(required=false)
 	private ProductDao product1;
 	
 	@RequestMapping(value={"/","/index","/home"})

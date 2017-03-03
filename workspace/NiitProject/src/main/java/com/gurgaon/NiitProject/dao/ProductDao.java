@@ -1,4 +1,4 @@
-package dao;
+package com.gurgaon.NiitProject.dao;
 
 import java.util.List;
 public interface ProductDao {

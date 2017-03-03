@@ -158,7 +158,7 @@
     <div id="products" class="row list-group">
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-                <img class="group list-group-image" src="${images}/Nature.jpg" alt="" />
+                <img class="group list-group-image" src="${images}/Nature1.jpg" alt="" />
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">
                         Nature</h4>
@@ -179,7 +179,7 @@
         </div>
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-                <img class="group list-group-image" src="${images}/Animal.jpg" alt="" />
+                <img class="group list-group-image" src="${images}/Animal1.jpg" alt="" />
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">
                         Animal</h4>
