@@ -1,49 +1,109 @@
 package com.gurgaon.delhi.shoppingBackEnd.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.CascadeType;
+import javax.persistence.Transient;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Product {
-
+public class Product implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotBlank(message = "Can not leave this field witout entering value")
+	@Size(min = 3, message = "Field must contain greater than 3 character")
 	private String brand;
+	@Size(min = 3, message = "Field must be greater than 3 character")
+	@NotBlank(message = "Can not leave this field witout entering value")
 	private String name;
+	@Size(min = 3, message = "Field must be greater than 3 character")
+	@NotBlank(message = "Can not leave this field witout entering value")
 	private String description;
-	private int categoryId;
+
+	// private int categoryId;
+	@NotBlank(message = "Can not leave this field witout entering value")
+	@Size(min = 3, message = "Field must contain greater than 3 character")
 	private String supplier;
 	private String productImg_url;
+	@Range(min = 0, max = 2000, message = "Product Quantity must be greater than 0")
 	private int price;
-	private int quantity;
+	@Range(min = 0, max = 2000, message = "Product Quantity must be within 0 and 200")
+	private int quantity;// Available Quantity
 
-	@ManyToOne(cascade = CascadeType.ALL) @JoinColumn(name="CAT_ID")
-	private	Category category;
-	
-	public Category getCategory() {
-		return category;
+	private boolean ActiveIs = true;
+
+	@Transient
+	@JsonIgnore
+	MultipartFile file;
+/*
+	@OneToOne
+	@JoinColumn(name = "cartItem_Id")
+	private CartItem cartItem;*/
+	// setter getter
+
+	public MultipartFile getFile() {
+		return file;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+/*	public CartItem getCartItem() {
+		return cartItem;
 	}
 
-	public int getID() {
-		return id;
+	public void setCartItem(CartItem cartItem) {
+		this.cartItem = cartItem;
+	}*/
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public void setID(int id) {
+	public void setId(int id) {
 		this.id = id;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
+	/*
+	 * @NotEmpty
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "cat_id")
+	 * 
+	 * @JsonManagedReference private Category category;
+	 * 
+	 * public Category getCategory() { return category; }
+	 * 
+	 * public void setCategory(Category category) { this.category = category; }
+	 */
+
+	public boolean isActiveIs() {
+		return ActiveIs;
+	}
+
+	public void setActiveIs(boolean activeIs) {
+		ActiveIs = activeIs;
 	}
 
 	public String getBrand() {
 		return brand;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public void setBrand(String brand) {
@@ -62,16 +122,15 @@ public class Product {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public int getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
+	/*
+	 * public void setDescription(String description) { this.description =
+	 * description; }
+	 * 
+	 * public int getCategoryId() { return categoryId; }
+	 * 
+	 * public void setCategoryId(int categoryId) { this.categoryId = categoryId;
+	 * }
+	 */
 
 	public String getSupplier() {
 		return supplier;
@@ -108,9 +167,8 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", brand=" + brand + ", name=" + name + ", description=" + description
-				+ ", categoryId=" + categoryId + ", supplier=" + supplier + ", productImg_url=" + productImg_url
-				+ ", price=" + price + ", quantity=" + quantity + "]";
+				+ ", supplier=" + supplier + ", productImg_url=" + productImg_url + ", price=" + price + ", quantity="
+				+ quantity + ", ActiveIs=" + ActiveIs + ", file=" + file + "]";
 	}
 
-	
 }

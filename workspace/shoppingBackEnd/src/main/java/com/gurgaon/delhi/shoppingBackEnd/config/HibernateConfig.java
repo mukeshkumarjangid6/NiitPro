@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
-@ComponentScan(basePackages={"com.gurgaon.delhi.shoppingBackEnd.dto"})
+@ComponentScan(basePackages={"com.gurgaon.delhi.shoppingBackEnd"})
 @EnableTransactionManagement
 public class HibernateConfig {
 	BasicDataSource dataSource;
@@ -27,7 +27,7 @@ private final static String DATABASE_USERNAME="sa";
 private final static String DATABASE_PASSWORD="sa";
 
 //Database will be available
-@Bean
+@Bean("dataSource")
 public DataSource getSource()
 {
 	 dataSource = new BasicDataSource();
@@ -54,7 +54,8 @@ private Properties getHibernateProperties() {
 	properties.put("hibernate.dialect", DATABASE_DIALECTS);
 	properties.put("hibernate.show_sql","true");
 	properties.put("hibernate.format_sql","true");
-	properties.put("hibernate.hbm2ddl.auto","create");
+	properties.put("hibernate.hbm2ddl.auto","update");
+	
 	return properties;
 }
 //HibernateTransactionManager

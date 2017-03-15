@@ -2,7 +2,6 @@ package com.gurgaon.delhi.shoppingBackEnd.dao;
 
 import java.util.List;
 
-import com.gurgaon.delhi.shoppingBackEnd.dto.Category;
 import com.gurgaon.delhi.shoppingBackEnd.dto.Product;
 
 public interface ProductDao {
@@ -13,7 +12,7 @@ public List <Product> productList();
 
 boolean add(Product product);
 
-boolean update(Category category);
+boolean update(Product product);
 
-boolean delete(Category category);
+boolean delete(int id);
 }
