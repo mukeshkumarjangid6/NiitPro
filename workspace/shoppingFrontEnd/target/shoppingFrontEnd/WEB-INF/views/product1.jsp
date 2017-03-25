@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,27 +44,30 @@ body {
 					<td>Name</td>
 					<td>Brand</td>
 					<td>Description</td>
-					<td>Category</td>
+					<!-- <td>Category</td> -->
 					<td>Supplier</td>
 					<td>Price</td>
 					<td>Quantity</td>
 				</tr>
 				<tr>
-					<td><img src='/shoppingFrontEnd/resources/Image/${msg.name}.jpg'
+					<td><img
+						src='/shoppingFrontEnd/resources/Image/${msg.name}.jpg'
 						height="200" width="200"></td>
 					<td>${msg.name}</td>
 					<td>${msg.brand}</td>
 					<td>${msg.description}</td>
-					<td>${msg.category}</td>
+					<%-- <td>${msg.category}</td> --%>
 					<td>${msg.supplier}</td>
-					<td>${msg.price}</td>
+					<td>&#8377;&nbsp;${msg.price}/-</td>
 					<td>${msg.quantity}</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><a class="btn btn-primary" href="#">Add To Cart</a></td>
+					<td><a class="btn btn-primary"
+						href="${contextRoot}/user/addProductToCartItem/${msg.id}">Add
+							To Cart</a></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -70,7 +75,7 @@ body {
 				</tr>
 			</tbody>
 		</table>
-		<%@include file="footer.jsp" %>
+		<%@include file="footer.jsp"%>
 	</div>
 </body>
 </html>

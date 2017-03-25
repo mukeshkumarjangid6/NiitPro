@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic Bootstrap Template</title>
+<title>Home Page</title>
 
 <s:url value="/resources/Image" var="images" />
 <s:url value="/resources/css" var="css" />
@@ -100,7 +100,8 @@ body, html {
 		});
 	});
 </script>
- --%></head>
+ --%>
+ </head>
 <body>
 	<%@include file="Navigation.jsp"%>
 	<div class="container">

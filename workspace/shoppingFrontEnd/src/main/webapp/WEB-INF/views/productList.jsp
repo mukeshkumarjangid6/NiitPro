@@ -42,9 +42,9 @@ body {
 							},
 							columns : [
 									{
-										data : null,
+										data : 'name',
 										mRender : function(data, type, row) {
-											return '<img src="/shoppingFrontEnd/resources/Image/'+ row.name +'.jpg" height="50" width="50">';
+											return '<img src="/shoppingFrontEnd/resources/Image/'+ data +'.jpg" height="50" width="50">';
 										}
 									},
 									{
@@ -77,7 +77,7 @@ body {
 									{
 										data : null,
 										mRender : function(data, type, row) {
-											return '<a class="btn btn-primary" href="${contextRoot}/user/cart">Add To Cart</a> ';
+											return "<a class='btn btn-primary' href='${contextRoot}/user/addProductToCartItem/"+row.id+"'>Add To Cart</a>";
 										}
 									} ]
 						});

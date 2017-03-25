@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic Bootstrap Template</title>
+<title>Admin</title>
 <s:url value="/resources/css" var="css" />
 <s:url value="/resources/js" var="js" />
 <s:url value="/resources/fonts" var="fonts" />
@@ -37,7 +37,7 @@ body {
 		<!-- Form Container -->
 
 		<div class="form-container">
-			<h1>Product Adding Form</h1>
+			<h1>Product Delete or Update Form</h1>
 			<form:form method="POST" action="${contextRoot}/productData.do"
 				commandName="product" modelAttribute="product"
 				class="form-horizontal" enctype="multipart/form-data">
@@ -92,33 +92,7 @@ body {
 					</div>
 				</div>
 
-				<div class="row">
-					<%-- 	<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="categoryId">categoryId</label>
-						<div class="col-md-7">
-							<form:select path="categoryId" id="cat_id"
-								class="form-control input-sm">
-								<form:option value="">Select category</form:option>
-								<form:options items="categoryId">${categoryId}</form:options>
-							</form:select>
-							<div class="has-error">
-								<form:errors path="categoryId" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div> --%>
-					<div class="row">
-						<div class="form-group col-md-12">
-							<label class="col-md-3 control-lable" for="categoryId">categoryId</label>
-							<div class="col-md-7">
-								<form:input type="text" path="categoryId" id="categoryId"
-									class="form-control input-sm" />
-								<div class="has-error">
-									<form:errors path="categoryId" class="help-inline" />
-								</div>
-							</div>
-						</div>
-					</div>
+			
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label class="col-md-3 control-lable" for="supplier">supplier</label>

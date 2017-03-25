@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Basic Bootstrap Template</title>
+<title>Registration Form</title>
 
 <s:url value="/resources/css" var="css" />
 <s:url value="/resources/js" var="js" />
@@ -67,7 +67,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="password">password</label>
 						<div class="col-md-7">
-							<form:input type="text" path="password" id="password"
+							<form:input type="password" path="password" id="password"
 								class="form-control input-sm" />
 							<div class="has-error">
 								<form:errors path="password" class="help-inline" />
@@ -80,7 +80,7 @@
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="contact">contact</label>
 						<div class="col-md-7">
-							<form:input type="text" path="contact" id="categoryId"
+							<form:input type="text" path="contact" id="contact"
 								class="form-control input-sm" />
 							<div class="has-error">
 								<form:errors path="contact" class="help-inline" />
@@ -88,6 +88,20 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-3 control-lable" for="address">address</label>
+						<div class="col-md-7">
+							<form:input type="text" path="address" id="address"
+								class="form-control input-sm" />
+							<div class="has-error">
+								<form:errors path="address" class="help-inline" />
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<div class="row">
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="role">role</label>

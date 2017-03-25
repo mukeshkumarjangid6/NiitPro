@@ -100,7 +100,8 @@ body, html {
 		});
 	});
 </script>
- --%></head>
+ --%>
+ </head>
 <body>
 	<%@include file="Navigation.jsp"%>
 	<div class="container">

@@ -31,16 +31,6 @@ public class AdminController {
 		// model.addObject("userClickProductCRUD", "true"); //redirect product
 		// insert page
 		model.addObject("product", new Product());
-
-		/*
-		 * List<Integer> sections = new ArrayList<Integer>(); sections.add(1);
-		 * model.addObject("categoryId", sections); List<Boolean> ActiveIs = new
-		 * ArrayList<Boolean>(); ActiveIs.add(Boolean.TRUE);
-		 * ActiveIs.add(Boolean.FALSE); model.addObject("ActiveIs", ActiveIs);
-		 */ // to do later on to populate dropdown list
-
-		// model.addObject("productList", productDao.productList()); to avoid
-		// display products at this page
 		return model;
 	}
 
@@ -52,13 +42,13 @@ public class AdminController {
 		if (result.hasErrors()) {
 			ModelAndView model1 = new ModelAndView("admin/adminIndex");
 			model1.addObject("title", "Product Management");
-	
+
 			return model1;
 		}
 		switch (action.toLowerCase()) {
 		case "add":
 			if (!(product.getFile().getOriginalFilename().equals(""))) {
-				product.setProductImg_url(uploadImage(product.getFile(),product));
+				product.setProductImg_url(uploadImage(product.getFile(), product));
 			}
 			System.out.println("Image uploaded");
 			productDao.add(product);
@@ -93,13 +83,13 @@ public class AdminController {
 			new File(realPath).mkdirs();
 		}
 		System.out.println("MultiPart5");
-		String filePath = realPath + product.getName()+".jpg";
+		String filePath = realPath + product.getName() + ".jpg";
 		File destination = new File(filePath);
 		try {
 			System.out.println("MultiPart6");
 			multipart.transferTo(destination);
 		} catch (Exception e) {
-			
+
 		}
 		System.out.println(fileName);
 		return fileName;

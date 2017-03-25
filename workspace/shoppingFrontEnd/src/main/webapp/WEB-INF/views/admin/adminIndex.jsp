@@ -41,9 +41,9 @@ body {
 							},
 							columns : [
 									{
-										data : null,
+										data : 'name',
 										mRender : function(data, type, row) {
-											return '<img src="/shoppingFrontEnd/resources/Image/"'+ row.name +'.jpg" height="50" width="50">';
+											return '<img src="/shoppingFrontEnd/resources/Image/'+ data +'.jpg" height="50" width="50">';
 										}
 									},
 									{
@@ -143,18 +143,7 @@ body {
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="form-group col-md-12">
-						<label class="col-md-3 control-lable" for="productImg_url">productImg_url</label>
-						<div class="col-md-7">
-							<form:input type="text" path="productImg_url" id="productImg_url"
-								class="form-control input-sm" />
-							<div class="has-error">
-								<form:errors path="productImg_url" class="help-inline" />
-							</div>
-						</div>
-					</div>
-				</div>
+
 				<div class="row">
 					<div class="form-group col-md-12">
 						<label class="col-md-3 control-lable" for="price">price</label>

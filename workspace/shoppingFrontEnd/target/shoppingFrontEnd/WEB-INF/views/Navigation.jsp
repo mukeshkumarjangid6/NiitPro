@@ -9,7 +9,7 @@
       <li><a href="#">View Cart</a></li>
       <li><a href="/shoppingFrontEnd/productList">View Products</a></li>
       <li><a href="registration">Registered Yourself</a></li>
-      <li><a href="/shoppingFrontEnd/Login">Login</a></li>
+      <li><a href="/shoppingFrontEnd/login">Login</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
   </div>

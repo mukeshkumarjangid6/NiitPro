@@ -37,7 +37,7 @@ body {
 		<!-- Form Container -->
 
 		<div class="form-container">
-			<h1>Product Adding Form</h1>
+			<h1>Product Delete or Update Form</h1>
 			<form:form method="POST" action="${contextRoot}/productData.do"
 				commandName="product" modelAttribute="product"
 				class="form-horizontal" enctype="multipart/form-data">

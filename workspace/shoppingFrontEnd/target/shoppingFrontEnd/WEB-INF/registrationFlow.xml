@@ -37,8 +37,8 @@
 		<transition on="failure" to="start" />
 	</action-state>
 
-	<end-state id="welcome" view="/user/userIndex" />
-	<end-state id="toHome" view="externalRedirect:contextRelative:/user/userIndex.jsp" />
+	<end-state id="welcome" view="/RegResultPage" />
+	<end-state id="toHome" view="externalRedirect:contextRelative:RegResultPage.jsp" />
 	<end-state id="toException"
 		view="externalRedirect:contextRelative:exception.jsp" />
 

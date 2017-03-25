@@ -25,7 +25,7 @@ public class RegistrationHandler {
 			return "failure";
 		}
 	}
-	
+
 	public String validateDetails(User user, MessageContext messageContext) {
 		String status = "success";
 		if (user.getName().isEmpty()) {

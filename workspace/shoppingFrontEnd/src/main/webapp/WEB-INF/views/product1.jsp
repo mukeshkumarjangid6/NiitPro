@@ -50,7 +50,8 @@ body {
 					<td>Quantity</td>
 				</tr>
 				<tr>
-					<td><img src='/shoppingFrontEnd/resources/Image/${msg.name}.jpg'
+					<td><img
+						src='/shoppingFrontEnd/resources/Image/${msg.name}.jpg'
 						height="200" width="200"></td>
 					<td>${msg.name}</td>
 					<td>${msg.brand}</td>
@@ -64,7 +65,9 @@ body {
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><a class="btn btn-primary" href="${contextRoot}/user/cart">Add To Cart</a></td>
+					<td><a class="btn btn-primary"
+						href="${contextRoot}/user/addProductToCartItem/${msg.id}">Add
+							To Cart</a></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -72,7 +75,7 @@ body {
 				</tr>
 			</tbody>
 		</table>
-		<%@include file="footer.jsp" %>
+		<%@include file="footer.jsp"%>
 	</div>
 </body>
 </html>

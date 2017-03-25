@@ -14,7 +14,6 @@
 <s:url value="/resources/js" var="js" />
 <s:url value="/resources/fonts" var="fonts" />
 
-
 <script src="${js}/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="${css}/bootstrap.min.css">
 <link rel="stylesheet" href="${css}/bootstrap-theme.min.css">
@@ -29,16 +28,89 @@ body {
 	text-align: center;
 }
 </style>
+<script type="text/javascript">
+	$(function() {
+		$('#mytable')
+				.DataTable(
+						{
+							ajax : {
+								url : '/shoppingFrontEnd/product1/all/data',
+								dataSrc : ''
+							},
+							columns : [
+									{
+										data : 'name',
+										mRender : function(data, type, row) {
+											return '<img src="/shoppingFrontEnd/resources/Image/'+ data +'.jpg" height="50" width="50">';
+										}
+									},
+									{
+										data : 'name'
+									},
+									{
+										data : 'brand'
+									},
+									{
+										data : 'description'
+									},
+									{
+										data : 'supplier'
+									},
+									{
+										data : 'price',
+										"mRender" : function(data, type, row) {
+											return "&#8377; " + data + "/-"
+										}
+									},
+							
+									{
+										data : null,
+										mRender : function(data, type, row) {
+											//return '<a class="btn btn-primary" href="/NiitProject/product11/userName="'+row.name+'">View Item</a>';
+											return "<a class='btn btn-primary' href='/shoppingFrontEnd/user/userViewProduct/"+row.id+"'>View Item</a>";
+										}
+									},
+									{
+										data : null,
+										mRender : function(data, type, row) {
+											return "<a class='btn btn-primary' href='${contextRoot}/user/addProductToCartItem/"+row.id+"'>Add To Cart</a>";
+										}
+									} ]
+						});
+	});
+</script>
 </head>
 <body>
+	<%@include file="userNavigation.jsp"%>
 	<div class="container">
-		<div class="success">
-			Confirmation message : ${success}
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="${contextRoot}/index">Back</a></li>
-			</ul>
-		</div>
+		<table id="mytable" class="table table-bordered">
+			<thead>
+				<th>Img_url</th>
+				<th>Name</th>
+				<th>Brand</th>
+				<th>Description</th>
+				<th>Supplier</th>
+				<th>Price (In &#8377;)</th>
+			
+				<th></th>
+				<th></th>
+			</thead>
+			<tfoot>
+				<th>Img_url</th>
+				<th>Name</th>
+				<th>Brand</th>
+				<th>Description</th>
+				<th>Supplier</th>
+				<th>Price</th>
+			
+				<th></th>
+				<th></th>
+			</tfoot>
+		</table>
+
+		<%@include file="../footer.jsp"%>
 	</div>
-	<%@include file="../footer.jsp"%>
+
+
 </body>
 </html>

@@ -10,7 +10,7 @@
 
 	<http>
 		<intercept-url pattern="/admin/**" access="hasAuthority('ADMIN')" />
-		<intercept-url pattern="/user/**" access="hasAuthority('USER')" />
+		<intercept-url pattern="/user/**" access="hasAuthority('CUSTOMER')" />
 		<intercept-url pattern="/supplier/**" access="hasAuthority('SUPPLIER')" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" default-target-url="/"

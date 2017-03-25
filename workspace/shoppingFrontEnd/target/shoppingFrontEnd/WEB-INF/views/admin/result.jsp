@@ -32,7 +32,7 @@ body {
 	<%@include file="adminNavigation.jsp"%>
 	<div class="container">
 		<div class="success">
-			Confirmation message : ${success}
+			Your Process has been processed.
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="${contextRoot}/admin/adminIndex">Back</a></li>
 			</ul>

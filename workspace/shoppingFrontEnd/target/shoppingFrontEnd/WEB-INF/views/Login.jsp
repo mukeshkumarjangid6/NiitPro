@@ -63,11 +63,12 @@ body {
             <form action="${contextRoot}/login" method="post">
                  <h2 class="text-center">Login Page</h2>
                 <br/>
+                <h3 class="text-center">${error}</h3>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="userid" placeholder="User id">
+                    <input type="email" name="username" class="form-control" id="userid" placeholder="User id">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="pwd" placeholder="Password">
                 
                     </div>
                     <br/>
