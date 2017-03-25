@@ -26,6 +26,7 @@ public class CartDaoImpl implements CartDao {
 			return null;
 		}
 	}
+
 	@Override
 	public boolean updateCart(Cart cart) {
 		try {
@@ -37,5 +38,24 @@ public class CartDaoImpl implements CartDao {
 			System.out.println(ex);
 			return false;
 		}
+	}
+
+	/*
+	 * Delete all cart items of a user.
+	 */
+	@Override
+	public boolean deleteAllCartItems(Cart cart) {
+		try {
+			String selectCartId = "DELETE FROM CartItem WHERE cart=:parameter";
+			Query query = sessionFactory.getCurrentSession().createQuery(selectCartId);
+			query.setParameter("parameter", cart);
+			System.out.println(query.executeUpdate());
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println(ex);
+			return false;
+		}
+
 	}
 }

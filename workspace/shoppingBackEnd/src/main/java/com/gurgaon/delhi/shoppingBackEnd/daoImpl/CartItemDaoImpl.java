@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gurgaon.delhi.shoppingBackEnd.dao.CartItemDao;
 import com.gurgaon.delhi.shoppingBackEnd.dto.Cart;
 import com.gurgaon.delhi.shoppingBackEnd.dto.CartItem;
+import com.gurgaon.delhi.shoppingBackEnd.dto.Product;
 
 @Repository("CartItemDaoImpl")
 @Transactional
@@ -24,6 +25,35 @@ public class CartItemDaoImpl implements CartItemDao {
 		String selectCartId = "FROM CartItem where cartItem_Id=:parameter";
 		Query<CartItem> query = sessionFactory.getCurrentSession().createQuery(selectCartId, CartItem.class);
 		query.setParameter("parameter", cartItem_Id);
+		try {
+			return query.getSingleResult();
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+	// used by addProductToCartItem() in userController, if cartItem is not
+	// exist create new object of cartItem
+	@Override
+	public boolean searchCartItemByUserIdAndProductId(Cart cart, Product product) {
+		String selectCartId = "FROM CartItem where cart=:parameter1 and product=:parameter2";
+		Query<CartItem> query = sessionFactory.getCurrentSession().createQuery(selectCartId, CartItem.class);
+		query.setParameter("parameter1", cart);
+		query.setParameter("parameter2", product);
+		try {
+			query.getSingleResult();
+			return false;
+		} catch (Exception ex) {
+			return true;
+		}
+	}
+
+	@Override
+	public CartItem getCartItemByUserIdAndProductId(Cart cart, Product product) {
+		String selectCartId = "FROM CartItem where cart=:parameter1 and product=:parameter2";
+		Query<CartItem> query = sessionFactory.getCurrentSession().createQuery(selectCartId, CartItem.class);
+		query.setParameter("parameter1", cart);
+		query.setParameter("parameter2", product);
 		try {
 			return query.getSingleResult();
 		} catch (Exception ex) {
@@ -46,8 +76,9 @@ public class CartItemDaoImpl implements CartItemDao {
 	@Override
 	public boolean addCartItem(CartItem cartItem) {
 		try {
-			// update the User to the database
+			// add cart item to the database
 			sessionFactory.getCurrentSession().save(cartItem);
+			// sessionFactory.getCurrentSession().evict(cartItem);
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -55,12 +86,14 @@ public class CartItemDaoImpl implements CartItemDao {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public boolean updateCartItem(CartItem cartItem) {
 		try {
+			// sessionFactory.getCurrentSession().refresh(cartItem);
+			// sessionFactory.getCurrentSession().refresh(user);
 			// update the User to the database
-			sessionFactory.getCurrentSession().update(cartItem);
+			sessionFactory.getCurrentSession().saveOrUpdate(cartItem);
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();

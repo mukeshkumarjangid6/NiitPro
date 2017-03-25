@@ -15,6 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan(basePackages={"com.gurgaon.delhi.shoppingBackEnd"})
+@ComponentScan(basePackages = {"com.gurgaon.delhi"})
 @EnableTransactionManagement
 public class HibernateConfig {
 	BasicDataSource dataSource;

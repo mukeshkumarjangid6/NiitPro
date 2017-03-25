@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Cart implements Serializable {
 
@@ -31,10 +33,11 @@ public class Cart implements Serializable {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	@JsonBackReference
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "cart")
 	private List<CartItem> cartList = new ArrayList<CartItem>(0);
-	// setter getter
-
+	
+	// setter getter 
 	public int getCart_Id() {
 		return cart_Id;
 	}

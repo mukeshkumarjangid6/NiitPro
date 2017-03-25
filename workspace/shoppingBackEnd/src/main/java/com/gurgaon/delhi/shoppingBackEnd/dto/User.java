@@ -27,6 +27,18 @@ public class User implements Serializable {
 	private String email;
 	@NotBlank(message = "Please enter password!")
 	private String password;
+
+	@NotBlank(message = "Please enter Address!")
+	private String address;
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	@NotBlank(message = "Please enter contact number!")
 	private String contact;
 	private String role = "CUSTOMER";
@@ -102,7 +114,10 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", name=" + name + ", email=" + email + ", password=" + password
-				+ ", contact=" + contact + ", role=" + role + ", enabled=" + enabled + ", cart=" + cart + "]";
+				+ ", address=" + address + ", contact=" + contact + ", role=" + role + ", enabled=" + enabled
+				+ ", cart=" + cart + "]";
 	}
+
+
 
 }

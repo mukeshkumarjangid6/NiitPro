@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class CartItem implements Serializable {
 
@@ -23,9 +25,14 @@ public class CartItem implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id")
 	private Product product;
-
+	
+	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Cart cart;
+
+	private int sell_quantity;
+
+	private int total_price;
 
 	public Cart getCart() {
 		return cart;
@@ -42,10 +49,6 @@ public class CartItem implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-
-	private int sell_quantity;
-
-	private int total_price;
 
 	public int getCartItem_Id() {
 		return cartItem_Id;
